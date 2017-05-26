@@ -1,6 +1,8 @@
 $("input").keypress(function(e) {
 	if (e.which === 13) {
-		var searchStr = $("input").val()
+		var searchStr = $("input").val();
+		$("input").val("");
+		$("h2").css("margin-top", "50px");
 		var url = "http://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchStr + "&format=json"; // &callback=wikiCallback
 		$.ajax({
 			dataType: "jsonp",

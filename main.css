@@ -1,11 +1,42 @@
 body {
 	text-align: center;
+	font-family: "Montserrat";
+	background: #ECECEA;
+}
+
+h2 {
+	margin-top: 18%;
+	/*margin-top: 50px;*/
+	transition-property: margin-top;
+	transform-style: linear;
+	transition-duration: 1s;
+}
+
+input {
+	width: 35%;
+	height: 2.5em;
+	border-radius: 25px;
+	font-size: 16px;
+	font-family: "Montserrat";
+	text-align: center;
+}
+
+input:focus {
+	outline: none;
+}
+
+.random {
+	margin-bottom: 2em;
 }
 
 .wiki {
 	text-align: left;
-	width: 66%;
+	width: 55%;
 	margin: 15px auto;
-	background-color: beige;
-	padding: 3%;
+	background: #ECECEA;
+	padding: 1%;
+}
+
+.wiki:hover {
+	border-left: 3px solid #2a3457;
 }
