@@ -1,20 +1,18 @@
-var input = $("input");
-var searchStr;
-
 $("input").keypress(function(e) {
 	if (e.which === 13) {
-		// console.log(e);
-		searchStr = $("input").val()
+		var searchStr = $("input").val()
 		var url = "http://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchStr + "&format=json"; // &callback=wikiCallback
 		$.ajax({
 			dataType: "jsonp",
 			url: url,
 			success: function(result) {
+				var articleList = result[1];
+				var articleDesc = result[2];
+				var articleLinks = result[3];
 				for (var i = 0; i < 10; i++) {
-					// var temp = "<p>" + result[1][i] + "</p>";
-					// $(".wikiResults").text(i);
-					// $(".wikiResults").clone().append().html(temp);
-					console.log(temp);
+					var articleName = "<h3><a target='blank' href='" + articleLinks[i] + "'>"+ articleList[i] + "</a></h3>";
+					var article = "<p>" + articleDesc[i] + "</p>";
+					$(".wikiResults" + i).append().html(articleName + article);
 				}
 			}
 		});
